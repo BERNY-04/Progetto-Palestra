@@ -1,0 +1,20 @@
+
+CC = gcc
+CFLAGS = -Wall -Wextra -g
+
+# File oggetto per il programma principale e per il test
+OBJS = main.o clienti.o lezioni.o prenotazioni.o
+TEST_OBJS = test.o clienti.o lezioni.o prenotazioni.o
+
+# Regola di default
+all: programma
+
+programma: $(OBJS)
+	$(CC) $(CFLAGS) -o programma $(OBJS)
+
+test: $(TEST_OBJS)
+	$(CC) $(CFLAGS) -o test $(TEST_OBJS)
+
+# Pulizia
+clean:
+	rm -f *.o programma test
